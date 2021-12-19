@@ -2,11 +2,11 @@
 
 namespace LinkedListClass
 {
-    public class LinkedList <T>
+    public class LinkedList<T>
     {
 
-        private Node _head;
-        private Node _tail;
+        private Node<T> _head;
+        private Node<T> _tail;
 
         public LinkedList()
         {
@@ -17,22 +17,22 @@ namespace LinkedListClass
         public LinkedList(T val)
         {
             InitHeadAndTail();
-            Node newNode = new Node(val);
+            Node<T> newNode = new Node<T>(val);
             _head = newNode;
             _tail = newNode;
         }
 
-        public LinkedList(int[] array)
+        public LinkedList(T[] array)
         {
             InitHeadAndTail();
             if (array.Length == 0) return;
 
-            Node shovel = new Node(array[0]);
+            Node<T> shovel = new Node<T>(array[0]);
             _head = shovel;
 
             for (int i = 1; i < array.Length; i++)
             {
-                shovel.Next = new Node(array[i]);
+                shovel.Next = new Node<T>(array[i]);
                 shovel = shovel.Next;
             }
             _tail = shovel;
@@ -47,7 +47,7 @@ namespace LinkedListClass
 
         public override string ToString()
         {
-            Node shovel = _head;
+            Node<T> shovel = _head;
             string str = "";
             while (shovel != null)
             {
@@ -59,15 +59,15 @@ namespace LinkedListClass
 
         private void InitHeadAndTail()
         {
-            _head = new Node();
-            _tail = new Node();
+            _head = new Node<T>();
+            _tail = new Node<T>();
         }
 
         public int GetLength()
         {
             int length = 0;
 
-            Node shovel = _head;
+            Node<T> shovel = _head;
             while (shovel != null)
             {
                 length += 1;
@@ -77,13 +77,13 @@ namespace LinkedListClass
             return length;
         }
 
-        public int[] ToArray()
+        public T[] ToArray()
         {
             int length = GetLength();
-            if (length == 0) return new int[] { };
+            if (length == 0) return new T[] { };
 
-            int[] array = new int[length];
-            Node shovel = _head;
+            T[] array = new T[length];
+            Node<T> shovel = _head;
             for (int i = 0; i < length; i++)
             {
                 array[i] = shovel.Data;
@@ -93,9 +93,9 @@ namespace LinkedListClass
             return array;
         }
 
-        public void AddFirst(int val)
+        public void AddFirst(T val)
         {
-            Node newNode = new Node(val);
+            Node<T> newNode = new Node<T>(val);
             if (_head == null)
             {
                 _head = newNode;
@@ -108,9 +108,9 @@ namespace LinkedListClass
             }
         }
 
-        public void AddFirst(LinkedList list)
+        public void AddFirst(LinkedList<T> list)
         {
-            if (list is LinkedList)
+            if (list is LinkedList<T>)
             {
                 list._tail.Next = _head;
                 _head = list._head;
@@ -119,9 +119,9 @@ namespace LinkedListClass
             else return;
         }
 
-        public void AddLast(int val)
+        public void AddLast(T val)
         {
-            Node newNode = new Node(val);
+            Node<T> newNode = new Node<T>(val);
             if (_head == null)
             {
                 _head = newNode;
@@ -134,7 +134,7 @@ namespace LinkedListClass
             }
         }
 
-        public void AddLast(LinkedList list)
+        public void AddLast(LinkedList<T> list)
         {
             if (_head == null)
             {
@@ -149,7 +149,7 @@ namespace LinkedListClass
         }
 
 
-        public void AddAt(int idx, int val)
+        public void AddAt(int idx, T val)
         {
             if (idx == 0)
             {
@@ -157,20 +157,20 @@ namespace LinkedListClass
                 return;
             }
 
-            Node previous = GetNode(idx - 1);
+            Node<T> previous = GetNode(idx - 1);
             if (previous == _tail)
             {
                 AddLast(val);
             }
             else
             {
-                Node newNode = new Node(val);
+                Node<T> newNode = new Node<T>(val);
                 newNode.Next = previous.Next;
                 previous.Next = newNode;
             }
         }
 
-        public void AddAt(int idx, LinkedList list)
+        public void AddAt(int idx, LinkedList<T> list)
         {
             if (idx == 0)
             {
@@ -178,7 +178,7 @@ namespace LinkedListClass
                 return;
             }
 
-            Node previous = GetNode(idx - 1);
+            Node<T> previous = GetNode(idx - 1);
             if (previous == _tail)
             {
                 AddLast(list);
@@ -190,9 +190,9 @@ namespace LinkedListClass
             }
         }
 
-        public void Set(int idx, int val)
+        public void Set(int idx, T val)
         {
-            Node changing = GetNode(idx);
+            Node<T> changing = GetNode(idx);
             changing.Data = val;
         }
 
@@ -219,7 +219,7 @@ namespace LinkedListClass
                 return;
             }
             //here in doubly make it simple
-            Node shovel = _head;
+            Node<T> shovel = _head;
             while (shovel.Next.Next != null)
             {
                 shovel = shovel.Next;
@@ -236,7 +236,7 @@ namespace LinkedListClass
                 return;
             }
 
-            Node removablePrev = GetNode(idx - 1);
+            Node<T> removablePrev = GetNode(idx - 1);
             if (removablePrev == _tail) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (removablePrev.Next == _tail)
             {
@@ -272,7 +272,7 @@ namespace LinkedListClass
             if (index < 0) _head = null;
             else
             {
-                Node lasEl = GetNode(index, length);
+                Node<T> lasEl = GetNode(index, length);
                 lasEl.Next = null;
                 _tail = lasEl;
             }
@@ -288,8 +288,8 @@ namespace LinkedListClass
             }
 
             int counterOfdeletedElementsAmount = 0;
-            Node shovel = GetNode(idx - 1);
-            Node copyForTail = shovel;
+            Node<T> shovel = GetNode(idx - 1);
+            Node<T> copyForTail = shovel;
 
             while (shovel.Next != null && counterOfdeletedElementsAmount < n)
             {
@@ -307,14 +307,14 @@ namespace LinkedListClass
             }
         }
 
-        public int RemoveFirst(int val)
+        public int RemoveFirst(T val)
         {
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idx = 0;
 
             while (shovel != null)
             {
-                if (shovel.Data == val)
+                if (shovel.Data.Equals(val))
                 {
                     RemoveAt(idx);
                     return idx;
@@ -326,15 +326,15 @@ namespace LinkedListClass
         }
 
 
-        public int RemoveAll(int val)
+        public int RemoveAll(T val)
         {
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idx = 0;
             int counter = 0;
-            Node removablePrev = null;
+            Node<T> removablePrev = null;
             while (shovel != null)
             {
-                if (shovel.Data == val)
+                if (shovel.Data.Equals(val))
                 {
                     if (removablePrev == null)
                     {
@@ -356,13 +356,13 @@ namespace LinkedListClass
             return counter;
         }
 
-        public bool Contains(int val)
+        public bool Contains(T val)
         {
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idx = 0;
             while (shovel != null)
             {
-                if (shovel.Data == val)
+                if (shovel.Data.Equals(val))
                 {
                     return true;
                 }
@@ -372,14 +372,14 @@ namespace LinkedListClass
             return false;
         }
 
-        public int IndexOf(int val)
+        public int IndexOf(T val)
         {
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idx = 0;
 
             while (shovel != null)
             {
-                if (shovel.Data == val)
+                if (shovel.Data.Equals(val))
                 {
                     return idx;
                 }
@@ -389,25 +389,25 @@ namespace LinkedListClass
             return -1;
         }
 
-        public int GetFirst()
+        public T GetFirst()
         {
             if (_head == null) throw new IndexOutOfRangeException("Your list is empty!");
             return _head.Data;
         }
 
-        public int GetLast()
+        public T GetLast()
         {
             if (_head == null) throw new IndexOutOfRangeException("Your list is empty!");
             return _tail.Data;
         }
 
 
-        private Node GetNode(int idx, int length)
+        private Node<T> GetNode(int idx, int length)
         {
             if (idx >= length) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
 
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idxReal = 0;
 
             while (idxReal < idx)
@@ -419,13 +419,13 @@ namespace LinkedListClass
             return shovel;
         }
 
-        private Node GetNode(int idx)
+        private Node<T> GetNode(int idx)
         {
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             int length = GetLength();
             if (idx >= length) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
 
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idxReal = 0;
 
             while (idxReal < idx)
@@ -437,13 +437,13 @@ namespace LinkedListClass
             return shovel;
         }
 
-        public int Get(int idx)
+        public T Get(int idx)
         {
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             int length = GetLength();
             if (idx >= length) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
 
-            Node shovel = _head;
+            Node<T> shovel = _head;
             int idxReal = 0;
 
             while (idxReal < idx)
@@ -460,12 +460,12 @@ namespace LinkedListClass
             RecursiveReverse(ref _head);
         }
 
-        private void RecursiveReverse(ref Node node)
+        private void RecursiveReverse(ref Node<T> node)
         {
             if (node == null || node.Next == null) return;
 
-            Node left;
-            Node next;
+            Node<T> left;
+            Node<T> next;
 
             left = node;
             next = left.Next;
@@ -477,162 +477,10 @@ namespace LinkedListClass
             node = next;
         }
 
-        public int Max()
+        public void Free()
         {
-            Node shovel = _head;
-            int max = -900000000;
-
-            while (shovel != null)
-            {
-                if (shovel.Data > max)
-                {
-                    max = shovel.Data;
-                }
-                shovel = shovel.Next;
-            }
-            return max;
-        }
-
-        public int Min()
-        {
-            Node shovel = _head;
-            int min = 900000000;
-
-            while (shovel != null)
-            {
-                if (shovel.Data < min)
-                {
-                    min = shovel.Data;
-                }
-                shovel = shovel.Next;
-            }
-            return min;
-        }
-
-        public int IndexOfMax()
-        {
-            Node shovel = _head;
-            int max = -900000000;
-            int idx = 0;
-            int idxOfMax = 0;
-
-            while (shovel != null)
-            {
-                if (shovel.Data > max)
-                {
-                    max = shovel.Data;
-                    idxOfMax = idx;
-                }
-                idx += 1;
-                shovel = shovel.Next;
-            }
-            return idxOfMax;
-        }
-
-        public int IndexOfMin()
-        {
-            Node shovel = _head;
-            int min = 900000000;
-            int idx = 0;
-            int idxOfMin = 0;
-
-            while (shovel != null)
-            {
-                if (shovel.Data < min)
-                {
-                    min = shovel.Data;
-                    idxOfMin = idx;
-                }
-                idx += 1;
-                shovel = shovel.Next;
-            }
-            return idxOfMin;
-        }
-
-        private void InsertionSort(bool desc)
-        {
-            LinkedList sorted = new LinkedList();
-
-            Node shovel = _head;
-
-            while (shovel != null)
-            {
-                InsertNewNodeInAList(shovel, ref sorted._head, ref sorted._tail, desc);
-                shovel = shovel.Next;
-            }
-
-            _head = sorted._head;
-        }
-
-        private Node Clone(Node node)
-        {
-            Node clone = new Node(node.Data);
-            return clone;
-        }
-
-        private void InsertNewNodeInAList(Node node, ref Node head, ref Node tail, bool desc)
-        {
-            Node newNode = Clone(node);
-
-            if (head == null)
-            {
-                head = newNode;
-                tail = newNode;
-                return;
-            }
-
-            Node shovel = head;
-            Node prevToPutNewNode = null;
-
-            if (desc)
-            {
-                while (shovel != null && shovel.Data > newNode.Data)
-                {
-                    prevToPutNewNode = shovel;
-                    shovel = shovel.Next;
-                }
-            }
-            else
-            {
-                while (shovel != null && shovel.Data < newNode.Data)
-                {
-                    prevToPutNewNode = shovel;
-                    shovel = shovel.Next;
-                }
-            }
-
-            Node tmp;
-
-            if (prevToPutNewNode == null)
-            {
-                tmp = head;
-                head = newNode;
-                newNode.Next = tmp;
-                return;
-            }
-
-            if (prevToPutNewNode == tail)
-            {
-                prevToPutNewNode.Next = newNode;
-                tail = newNode;
-                return;
-            }
-
-            tmp = prevToPutNewNode.Next;
-            prevToPutNewNode.Next = newNode;
-            newNode.Next = tmp;
-        }
-
-
-        public void Sort()
-        {
-            InsertionSort(false);
-        }
-
-
-        public void SortDesc()
-        {
-            InsertionSort(true);
+            _head = null;
+            _tail = null;
         }
     }
 }

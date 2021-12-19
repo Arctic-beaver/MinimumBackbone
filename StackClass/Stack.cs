@@ -1,43 +1,42 @@
-﻿using System;
+﻿using LinkedListClass;
+using System;
 
 namespace StackClass
 {
-    public class Stack
+    public class Stack<T>
     {
-        public LinkedList list = new ListClass();
+        public LinkedList<T> list = new LinkedList<T>();
 
-        public void Push(Structure data)
+        public void Push(T data)
         {
-            list.Add(data, list.GetAmountOfNodes());
+            list.AddLast(data);
         }
 
-
-        public Structure Pop()
+        public T Pop()
         {
-            Structure result = list.GetDataOnPos(list.GetAmountOfNodes() - 1);
-            list.Delete(list.GetAmountOfNodes() - 1);
+            T result = list.GetLast();
+            list.RemoveLast();
             return result;
         }
 
-        public Structure Peek()
+        public T Peek()
         {
-            return list.GetDataOnPos(list.GetAmountOfNodes() - 1);
+            return list.GetLast();
         }
 
-        /*public bool Contains(string data)
+        public bool Contains(T data)
         {
-            if (list.Find(data) != -1) return true;
-            else return false;
-        }*/
+            return list.Contains(data);
+        }
 
         public int AmountOfEl()
         {
-            return list.GetAmountOfNodes();
+            return list.GetLength();
         }
-
 
         public void Finish()
         {
             list.Free();
         }
     }
+}

@@ -18,7 +18,7 @@ namespace LinkedListClass.Tests
         public void GetLengthTest(int[] array, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.GetLength();
@@ -35,7 +35,7 @@ namespace LinkedListClass.Tests
         public void ToArrayTest(int[] array)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
             int[] expected = array;
             //act          
             int[] actual = list.ToArray();
@@ -50,7 +50,7 @@ namespace LinkedListClass.Tests
         public void AddFirstTest(int[] array, int val, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.AddFirst(val);
@@ -66,8 +66,8 @@ namespace LinkedListClass.Tests
         public void AddFirstTest(int[] array, int[] willBeList, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
-            LinkedList enteringList = new LinkedList(willBeList);
+            LinkedList<int> list = new LinkedList<int>(array);
+            LinkedList<int> enteringList = new LinkedList<int>(willBeList);
             //act          
             list.AddFirst(enteringList);
             string actual = list.ToString();
@@ -82,7 +82,7 @@ namespace LinkedListClass.Tests
         public void AddLastTest(int[] array, int val, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.AddLast(val);
@@ -98,8 +98,8 @@ namespace LinkedListClass.Tests
         public void AddLastTest(int[] array, int[] willBeList, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
-            LinkedList expectedList = new LinkedList(willBeList);
+            LinkedList<int> list = new LinkedList<int>(array);
+            LinkedList<int> expectedList = new LinkedList<int>(willBeList);
             //act          
             list.AddLast(expectedList);
             string actual = list.ToString();
@@ -114,7 +114,7 @@ namespace LinkedListClass.Tests
         public void AddAtTest(int[] array, int position, int val, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.AddAt(position, val);
@@ -130,8 +130,8 @@ namespace LinkedListClass.Tests
         public void AddAtTest(int[] array, int position, int[] willBeList, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
-            LinkedList expectedList = new LinkedList(willBeList);
+            LinkedList<int> list = new LinkedList<int>(array);
+            LinkedList<int> expectedList = new LinkedList<int>(willBeList);
             //act          
             list.AddAt(position, expectedList);
             string actual = list.ToString();
@@ -146,7 +146,7 @@ namespace LinkedListClass.Tests
         public void AddAtNegativeTest(int[] array, int position, int val, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -160,7 +160,7 @@ namespace LinkedListClass.Tests
         public void SetTest(int[] array, int position, int val, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.Set(position, val);
@@ -175,7 +175,7 @@ namespace LinkedListClass.Tests
         public void SetNegativeTest(int[] array, int position, int val, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -190,7 +190,7 @@ namespace LinkedListClass.Tests
         public void RemoveFirstTest(int[] array, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveFirst();
@@ -206,7 +206,7 @@ namespace LinkedListClass.Tests
         public void RemoveLastTest(int[] array, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveLast();
@@ -222,7 +222,7 @@ namespace LinkedListClass.Tests
         public void RemoveAtTest(int[] array, int position, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveAt(position);
@@ -238,7 +238,7 @@ namespace LinkedListClass.Tests
         public void RemoveAtNegativeTest(int[] array, int position, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -252,7 +252,7 @@ namespace LinkedListClass.Tests
         public void RemoveFirstMultipleTest(int[] array, int amount, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveFirstMultiple(amount);
@@ -266,7 +266,7 @@ namespace LinkedListClass.Tests
         public void RemoveFirstMultipleNegativeTest(int[] array, int amount, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -280,7 +280,7 @@ namespace LinkedListClass.Tests
         public void RemoveLastMultipleTest(int[] array, int amount, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveLastMultiple(amount);
@@ -294,7 +294,7 @@ namespace LinkedListClass.Tests
         public void RemoveLastMultipleNegativeTest(int[] array, int amount, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -308,7 +308,7 @@ namespace LinkedListClass.Tests
         public void RemoveAtMultipleTest(int[] array, int index, int amount, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.RemoveAtMultiple(index, amount);
@@ -323,7 +323,7 @@ namespace LinkedListClass.Tests
         public void RemoveAtMultipleNegativeTest(int[] array, int index, int amount, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -337,7 +337,7 @@ namespace LinkedListClass.Tests
         public void RemoveFirstTest(int[] array, int val, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.RemoveFirst(val);
@@ -352,7 +352,7 @@ namespace LinkedListClass.Tests
         public void RemoveAllTest(int[] array, int val, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.RemoveAll(val);
@@ -367,7 +367,7 @@ namespace LinkedListClass.Tests
         public void ContainsTest(int[] array, int val, bool expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             bool actual = list.Contains(val);
@@ -382,7 +382,7 @@ namespace LinkedListClass.Tests
         public void IndexOfTest(int[] array, int val, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.IndexOf(val);
@@ -397,7 +397,7 @@ namespace LinkedListClass.Tests
         public void GetFirstTest(int[] array, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.GetFirst();
@@ -413,7 +413,7 @@ namespace LinkedListClass.Tests
         public void GetLastTest(int[] array, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.GetLast();
@@ -428,7 +428,7 @@ namespace LinkedListClass.Tests
         public void GetTest(int[] array, int index, int expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             int actual = list.Get(index);
@@ -442,7 +442,7 @@ namespace LinkedListClass.Tests
         public void GetNegativeTest(int[] array, int index, string expectedMessage)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act, assert
 
@@ -451,75 +451,13 @@ namespace LinkedListClass.Tests
         }
 
 
-
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, -98)]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, -67)]
-        [TestCase(new int[] { 0, 0, 0 }, 0)]
-        public void MinTest(int[] array, int expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act          
-            int actual = list.Min();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, 3)]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, 67)]
-        [TestCase(new int[] { 0, 0, 0 }, 0)]
-        public void MaxTest(int[] array, int expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act          
-            int actual = list.Max();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, 4)]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, 5)]
-        [TestCase(new int[] { 0, 0, 0 }, 0)]
-        public void IndexOfMinTest(int[] array, int expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act          
-            int actual = list.IndexOfMin();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
-
-
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, 2)]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, 2)]
-        [TestCase(new int[] { 0, 0, 0 }, 0)]
-        public void IndexOfMaxTest(int[] array, int expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act          
-            int actual = list.IndexOfMax();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
-
         [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, "-33 -56 -98 2 3 -2 1 ")]
         [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, "3 56 -23 -23 -67 -45 23 67 3 0 ")]
         [TestCase(new int[] { 0, 0, 0 }, "0 0 0 ")]
         public void ReverseTest(int[] array, string expected)
         {
             //arrange
-            LinkedList list = new LinkedList(array);
+            LinkedList<int> list = new LinkedList<int>(array);
 
             //act          
             list.Reverse();
@@ -529,36 +467,5 @@ namespace LinkedListClass.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, "-98 -56 -33 -2 1 2 3 ")]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, "-67 -45 -23 -23 0 3 3 23 56 67 ")]
-        [TestCase(new int[] { 0, 0, 0 }, "0 0 0 ")]
-        public void SortTest(int[] array, string expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act
-            list.Sort();
-            string actual = list.ToString();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestCase(new int[] { 1, -2, 3, 2, -98, -56, -33 }, "3 2 1 -2 -33 -56 -98 ")]
-        [TestCase(new int[] { 0, 3, 67, 23, -45, -67, -23, -23, 56, 3 }, "67 56 23 3 3 0 -23 -23 -45 -67 ")]
-        [TestCase(new int[] { 0, 0, 0 }, "0 0 0 ")]
-        public void SortDescTest(int[] array, string expected)
-        {
-            //arrange
-            LinkedList list = new LinkedList(array);
-
-            //act
-            list.SortDesc();
-            string actual = list.ToString();
-
-            //assert
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
