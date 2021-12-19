@@ -5,38 +5,38 @@ namespace StackClass
 {
     public class Stack<T>
     {
-        public LinkedList<T> list = new LinkedList<T>();
+        private LinkedList<T> _list = new LinkedList<T>();
 
         public void Push(T data)
         {
-            list.AddLast(data);
+            _list.AddLast(data);
         }
 
         public T Pop()
         {
-            T result = list.GetLast();
-            list.RemoveLast();
+            T result = _list.GetLast();
+            _list.RemoveLast();
             return result;
         }
 
         public T Peek()
         {
-            return list.GetLast();
+            return _list.GetLast();
         }
 
         public bool Contains(T data)
         {
-            return list.Contains(data);
+            return _list.Contains(data);
         }
 
-        public int AmountOfEl()
+        public int GetLength()
         {
-            return list.GetLength();
+            return _list.GetLength();
         }
 
         public void Finish()
         {
-            list.Free();
+            _list.Free();
         }
     }
 }
