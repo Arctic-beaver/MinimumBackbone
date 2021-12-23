@@ -4,11 +4,22 @@ namespace GraphLogic
 {
     public class Set
     {
-        public string Vertex { get; set; }
+        public Graph SetGraph;
+        public ArrayList<string> Vertices;
 
-        public ArrayList<string> Children;
+        public Set(Edge edge)
+        {
+            SetGraph = new Graph(edge);
 
-        public int Weight { get; set; }
+            Vertices = new ArrayList<string>();        
+            Vertices.Add(edge.VertexA);
+            Vertices.Add(edge.VertexB);
+        }
+
+        public void Union(Set set)
+        {
+            SetGraph.Add(set.SetGraph);
+        }
 
         public bool Contains(string vertex)
         {

@@ -105,6 +105,16 @@ namespace ArrayListClass
             FilledLength += list.GetLength();
         }
 
+        public void Add(T val)
+        {
+            AddLast(val);
+        }
+
+        public void Add(ArrayList<T> list)
+        {
+            AddLast(list);
+        }
+
         public void AddAt(int idx, T val)
         {
             if (idx > FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");

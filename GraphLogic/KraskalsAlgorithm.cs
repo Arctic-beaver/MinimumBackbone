@@ -1,5 +1,6 @@
 ﻿
 using ArrayListClass;
+using LinkedListClass;
 
 namespace GraphLogic
 {
@@ -13,14 +14,12 @@ namespace GraphLogic
         {
             _innerGraph.Sort();
 
-            for 
+            _innerGraph.ToSets(this);
+            
             return _resultGraph;
         }
 
-        public void ToSets()
-        {
-
-        }
+        
 
         public Set Contains(string vertex)
         {
