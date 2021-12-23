@@ -6,31 +6,31 @@ namespace ArrayListClass
     {
         private T[] _array;
 
-        private int FilledLength;
+        private int _filledLength;
 
         public ArrayList()
         {
             _array = new T[10];
-            FilledLength = 0;
+            _filledLength = 0;
         }
 
         public ArrayList(T element)
         {
             _array = new T[10];
             _array[0] = element;
-            FilledLength = 1;
+            _filledLength = 1;
         }
 
         public ArrayList(T[] givenArray)
         {
             _array = givenArray;
-            FilledLength = _array.Length;
+            _filledLength = _array.Length;
         }
 
         public override string ToString()
         {
             string str = "";
-            for (int i = 0; i < FilledLength; i++)
+            for (int i = 0; i < _filledLength; i++)
             {
                 str += $"{_array[i]} ";
             }
@@ -39,13 +39,13 @@ namespace ArrayListClass
 
         public int GetLength()
         {
-            return FilledLength;
+            return _filledLength;
         }
 
         public T[] ToArray()
         {
-            T[] outputArray = new T[FilledLength];
-            for (int i = 0; i < FilledLength; i++)
+            T[] outputArray = new T[_filledLength];
+            for (int i = 0; i < _filledLength; i++)
             {
                 outputArray[i] = _array[i];
             }
@@ -54,12 +54,12 @@ namespace ArrayListClass
 
         private void ShiftArrayElementsForward(int numberOfPositionsToShift, int positionStartShift)
         {
-            while (FilledLength + numberOfPositionsToShift > _array.Length) Resize();
-            for (int i = FilledLength + numberOfPositionsToShift - 1; i >= numberOfPositionsToShift + positionStartShift; i--)
+            while (_filledLength + numberOfPositionsToShift > _array.Length) Resize();
+            for (int i = _filledLength + numberOfPositionsToShift - 1; i >= numberOfPositionsToShift + positionStartShift; i--)
             {
                 _array[i] = _array[i - numberOfPositionsToShift];
             }
-            FilledLength += numberOfPositionsToShift;
+            _filledLength += numberOfPositionsToShift;
         }
 
         private void Resize()
@@ -90,19 +90,19 @@ namespace ArrayListClass
 
         public void AddLast(T val)
         {
-            if (FilledLength == _array.Length) Resize();
-            _array[FilledLength] = val;
-            FilledLength += 1;
+            if (_filledLength == _array.Length) Resize();
+            _array[_filledLength] = val;
+            _filledLength += 1;
         }
 
         public void AddLast(ArrayList<T> list)
         {
-            while (FilledLength + list.GetLength() > _array.Length) Resize();
-            for (int i = FilledLength, j = 0; i < FilledLength + list.GetLength(); j++, i++)
+            while (_filledLength + list.GetLength() > _array.Length) Resize();
+            for (int i = _filledLength, j = 0; i < _filledLength + list.GetLength(); j++, i++)
             {
                 _array[i] = list.Get(j);
             }
-            FilledLength += list.GetLength();
+            _filledLength += list.GetLength();
         }
 
         public void Add(T val)
@@ -117,32 +117,32 @@ namespace ArrayListClass
 
         public void AddAt(int idx, T val)
         {
-            if (idx > FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx > _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
-            if (idx < FilledLength)
+            if (idx < _filledLength)
             {
                 ShiftArrayElementsForward(1, idx);
             }
-            else if (FilledLength == _array.Length)
+            else if (_filledLength == _array.Length)
             {
                 Resize();
-                FilledLength += 1;
+                _filledLength += 1;
             }
             _array[idx] = val;
         }
 
         public void AddAt(int idx, ArrayList<T> list)
         {
-            if (idx > FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx > _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
-            if (idx < FilledLength)
+            if (idx < _filledLength)
             {
                 ShiftArrayElementsForward(list.GetLength(), idx);
             }
-            else if (FilledLength == _array.Length)
+            else if (_filledLength == _array.Length)
             {
-                while (FilledLength + list.GetLength() > _array.Length) Resize();
-                FilledLength += list.GetLength();
+                while (_filledLength + list.GetLength() > _array.Length) Resize();
+                _filledLength += list.GetLength();
             }
             for (int i = idx, j = 0; i < list.GetLength() + idx; j++, i++)
             {
@@ -152,41 +152,41 @@ namespace ArrayListClass
 
         public void Set(int idx, T val)
         {
-            if (idx >= FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx >= _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             _array[idx] = val;
         }
 
         private void ShiftArrayElementsBackward(int numberOfPositionsToShift, int positionStartShift)
         {
-            while (FilledLength + numberOfPositionsToShift > _array.Length) Resize();
-            for (int i = positionStartShift; i < FilledLength - numberOfPositionsToShift; i++)
+            while (_filledLength + numberOfPositionsToShift > _array.Length) Resize();
+            for (int i = positionStartShift; i < _filledLength - numberOfPositionsToShift; i++)
             {
                 _array[i] = _array[i + numberOfPositionsToShift];
             }
-            FilledLength -= numberOfPositionsToShift;
+            _filledLength -= numberOfPositionsToShift;
             ResizeMinimize();
         }
 
         private void ResizeMinimize()
         {
             bool isClear = false;
-            if (FilledLength == 0)
+            if (_filledLength == 0)
             {
-                FilledLength = 10;
+                _filledLength = 10;
                 isClear = true;
             }
-            while (FilledLength <= (_array.Length * 2) / 3)
+            while (_filledLength <= (_array.Length * 2) / 3)
             {
                 T[] smallerArray = new T[(_array.Length * 2) / 3];
 
-                for (int i = 0; i < FilledLength; i++)
+                for (int i = 0; i < _filledLength; i++)
                 {
                     smallerArray[i] = _array[i];
                 }
                 _array = smallerArray;
             }
-            if (isClear) FilledLength = 0;
+            if (isClear) _filledLength = 0;
         }
 
         public void RemoveFirst()
@@ -196,16 +196,16 @@ namespace ArrayListClass
 
         public void RemoveLast()
         {
-            FilledLength -= 1;
+            _filledLength -= 1;
             ResizeMinimize();
         }
 
         public void RemoveAt(int idx)
         {
-            if (idx >= FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx >= _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             if (idx == 0) RemoveFirst();
-            else if (idx == FilledLength - 1) RemoveLast();
+            else if (idx == _filledLength - 1) RemoveLast();
             else
             {
                 ShiftArrayElementsBackward(1, idx);
@@ -214,11 +214,11 @@ namespace ArrayListClass
 
         public void RemoveFirstMultiple(int n)
         {
-            if (n > FilledLength) throw new ArgumentException("Wrong amount: we don't have such amount of elements!");
+            if (n > _filledLength) throw new ArgumentException("Wrong amount: we don't have such amount of elements!");
             if (n < 0) throw new ArgumentException("Wrong amount: amount must be positive!");
-            if (n == FilledLength)
+            if (n == _filledLength)
             {
-                FilledLength = 0;
+                _filledLength = 0;
                 ResizeMinimize();
             }
             else ShiftArrayElementsBackward(n, 0);
@@ -226,27 +226,27 @@ namespace ArrayListClass
 
         public void RemoveLastMultiple(int n)
         {
-            if (n > FilledLength) throw new ArgumentException("Wrong amount: we don't have such amount of elements!");
+            if (n > _filledLength) throw new ArgumentException("Wrong amount: we don't have such amount of elements!");
             if (n < 0) throw new ArgumentException("Wrong amount: amount must be positive!");
-            if (n == FilledLength)
+            if (n == _filledLength)
             {
-                FilledLength = 0;
+                _filledLength = 0;
                 ResizeMinimize();
             }
             else
             {
-                FilledLength -= n;
+                _filledLength -= n;
                 ResizeMinimize();
             }
         }
 
         public void RemoveAtMultiple(int idx, int n)
         {
-            if (idx + n >= FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx + n >= _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             if (n < 0) throw new ArgumentException("Wrong amount: amount must be positive!");
 
-            if (idx + n == FilledLength - 1) RemoveLastMultiple(n);
+            if (idx + n == _filledLength - 1) RemoveLastMultiple(n);
             else ShiftArrayElementsBackward(n, idx);
         }
 
@@ -279,7 +279,7 @@ namespace ArrayListClass
 
         public int IndexOf(T val) //- вернёт индекс первого найденного элемента, равного val(или -1, если элементов с таким значением в списке нет)
         {
-            for (int i = 0; i < FilledLength; i++)
+            for (int i = 0; i < _filledLength; i++)
             {
                 //return position
                 if (_array[i].Equals(val)) return i;
@@ -295,12 +295,12 @@ namespace ArrayListClass
 
         public T GetLast()
         {
-            return _array[FilledLength - 1];
+            return _array[_filledLength - 1];
         }
 
         public T Get(int idx)
         {
-            if (idx >= FilledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
+            if (idx >= _filledLength) throw new ArgumentException("Wrong position: we don't have such amount of elements!");
             if (idx < 0) throw new ArgumentException("Wrong position: index must be positive!");
             return _array[idx];
         }
@@ -314,9 +314,9 @@ namespace ArrayListClass
 
         public void Reverse()
         {
-            for (int i = 0; i < FilledLength / 2; i++)
+            for (int i = 0; i < _filledLength / 2; i++)
             {
-                Swap(i, FilledLength - 1 - i);
+                Swap(i, _filledLength - 1 - i);
             }
         }
     }
