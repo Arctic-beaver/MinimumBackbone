@@ -56,8 +56,6 @@ namespace GraphLogic
             Node<Edge> shovel = _graph.GetFirstNode();
             if (shovel == null) return;
 
-            shovel = shovel.Next;
-
             while (shovel != null)
             {
                 Set setA = storage.Contains(shovel.Data.VertexA);
