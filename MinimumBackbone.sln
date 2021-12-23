@@ -30,6 +30,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestFiles", "TestFiles", "{53BE2175-99B3-43B5-B456-5D112699799A}"
 	ProjectSection(SolutionItems) = preProject
 		TestFiles\Test.txt = TestFiles\Test.txt
+		TestFiles\Test1.txt = TestFiles\Test1.txt
 		TestFiles\Test2.txt = TestFiles\Test2.txt
 	EndProjectSection
 EndProject
