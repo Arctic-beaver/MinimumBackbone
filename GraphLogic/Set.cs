@@ -16,16 +16,25 @@ namespace GraphLogic
             Vertices.Add(edge.VertexB);
         }
 
-        public void Union(Set set)
+        public void Union(Set set, Edge connectingEdge)
         {
             SetGraph.Add(set.SetGraph);
+            Vertices.Add(set.Vertices);
+            SetGraph.Add(connectingEdge);
+        }
+
+        public void AddEdge(Edge edge)
+        {
+            SetGraph.Add(edge);
+            Vertices.Add(edge.VertexA);
+            Vertices.Add(edge.VertexB);
         }
 
         public bool Contains(string vertex)
         {
-            for (int i = 0; i < Children.GetLength(); i++)
+            for (int i = 0; i < Vertices.GetLength(); i++)
             {
-                if (Children.Get(i) == vertex) return true;
+                if (Vertices.Get(i) == vertex) return true;
             }
             return false;
         }

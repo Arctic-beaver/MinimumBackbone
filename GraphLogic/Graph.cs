@@ -25,6 +25,16 @@ namespace GraphLogic
         public int GetLength() => _graph.GetLength();
         public bool Contains(Edge edge) => _graph.Contains(edge);
 
+        public void Add(Graph graph)
+        {
+            _graph.AddLast(graph._graph);
+        }
+
+        public void Add(Edge edge)
+        {
+            _graph.AddLast(edge);
+        }
+
         //public void ToSets(KraskalsAlgorithm storage)
         //{
         //    Node<Edge> shovel = _graph.GetFirstNode();
