@@ -35,46 +35,58 @@ namespace GraphLogic
             _graph.AddLast(edge);
         }
 
-        //public void ToSets(KraskalsAlgorithm storage)
-        //{
-        //    Node<Edge> shovel = _graph.GetFirstNode();
-        //    if (shovel == null) return;
+        public int GetWeight()
+        {
+            Node<Edge> shovel = _graph.GetFirstNode();
+            if (shovel == null) return 0;
 
-        //    shovel = shovel.Next;
+            shovel = shovel.Next;
+            int weight = 0;
 
-        //    while(shovel != null)
-        //    {
-        //        Set set = storage.Contains(shovel.Data.VertexA);
-        //        if (set != null)
-        //        {
-        //            set.AddChild(shovel.Data.VertexB, shovel.Data.EdgeWeight);
-        //        }
-        //        else
-        //        {
-        //            Set setWhereA = null;
-        //            Set setWhereB = null;
-        //            for (int i = 0; i < storage.Sets.GetLength(); i++)
-        //            {
-        //                if (storage.Sets.Get(i).Contains(shovel.Data.VertexA))
-        //                    setWhereA = storage.Sets.Get(i);
-        //                if (storage.Sets.Get(i).Contains(shovel.Data.VertexB))
-        //                    setWhereB = storage.Sets.Get(i);
-        //            }
-        //            if (setWhereA != setWhereB)
-        //            {
-        //                if ((setWhereA == null) && (setWhereB == null))
-        //                {
-        //                    Set newSet = new Set(shovel.Data.VertexA, shovel.Data.VertexB, shovel.Data.EdgeWeight);
-        //                }
-        //                else if ((setWhereA == null) && (setWhereB == null))
-        //                {
-                            
-        //                }
-        //            }
-        //        } 
-                    
-        //    }
-        //}
+            while (shovel != null)
+            {
+                weight += shovel.Data.EdgeWeight;
+                shovel = shovel.Next;
+            }
+            return weight;
+        }
+
+        public void ToSets(KraskalsAlgorithm storage)
+        {
+            Node<Edge> shovel = _graph.GetFirstNode();
+            if (shovel == null) return;
+
+            shovel = shovel.Next;
+
+            while (shovel != null)
+            {
+                Set setA = storage.Contains(shovel.Data.VertexA);
+                Set setB = storage.Contains(shovel.Data.VertexB);
+
+                if (setA != null && setB == null)
+                {
+                    setA.AddEdge(shovel.Data);
+                }
+                else if (setA == null && setB != null)
+                {
+                    setB.AddEdge(shovel.Data);
+                }
+                else if (setA == null && setB == null)
+                {
+                    Set set = new Set(shovel.Data);
+                    storage.Sets.Add(set);
+                }
+                else if (setA != null && setB != null)
+                {
+                    if (setA != setB)
+                    {
+                        setA.Union(setB, shovel.Data);
+                        storage.Sets.RemoveFirst(setB);
+                    }
+                }
+                shovel = shovel.Next;
+            }
+        }      
 
         public override string ToString()
         {

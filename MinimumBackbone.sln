@@ -27,6 +27,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayListClass", "ArrayList
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayListClass.Tests", "ArrayListClass.Tests\ArrayListClass.Tests.csproj", "{A4DAF592-E48A-422E-BFF9-8C037F749A4C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestFiles", "TestFiles", "{53BE2175-99B3-43B5-B456-5D112699799A}"
+	ProjectSection(SolutionItems) = preProject
+		TestFiles\Test.txt = TestFiles\Test.txt
+		TestFiles\Test2.txt = TestFiles\Test2.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

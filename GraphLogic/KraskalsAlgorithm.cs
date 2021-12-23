@@ -7,25 +7,23 @@ namespace GraphLogic
     public class KraskalsAlgorithm
     {
         public ArrayList<Set> Sets;
-        private Graph _innerGraph;
-        private Graph _resultGraph;
 
-        public Graph FindMinimumBackbone()
+        public Graph FindMinimumBackbone(Graph graph)
         {
-            _innerGraph.Sort();
+            graph.Sort();
 
-            _innerGraph.ToSets(this);
+            graph.ToSets(this);
+
+            graph = Sets.Get(0).SetGraph;
             
-            return _resultGraph;
+            return graph;
         }
-
-        
 
         public Set Contains(string vertex)
         {
             for (int i = 0; i < Sets.GetLength(); i++)
             {
-                if (Sets.Get(i).Vertex == vertex) return Sets.Get(i);
+                if (Sets.Get(i).Contains(vertex)) return Sets.Get(i);
             }
             return null;
         }
