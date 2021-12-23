@@ -17,11 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedListClass.Tests", "Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackClass", "StackClass\StackClass.csproj", "{26C8011E-9E98-4F08-BEDA-9B28C6D379FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLogic", "GraphLogic\GraphLogic.csproj", "{8CF3E3B5-F380-45A4-8A77-B9247240E0A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphLogic", "GraphLogic\GraphLogic.csproj", "{8CF3E3B5-F380-45A4-8A77-B9247240E0A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackClass.Tests", "StackClass.Tests\StackClass.Tests.csproj", "{756B251C-071B-4E4E-A758-C87A159ED7E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackClass.Tests", "StackClass.Tests\StackClass.Tests.csproj", "{756B251C-071B-4E4E-A758-C87A159ED7E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLogic.Tests", "GraphLogic.Tests\GraphLogic.Tests.csproj", "{BED5F482-1157-414F-915B-FD846F6EEAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphLogic.Tests", "GraphLogic.Tests\GraphLogic.Tests.csproj", "{BED5F482-1157-414F-915B-FD846F6EEAD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

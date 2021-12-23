@@ -2,7 +2,7 @@
 
 namespace LinkedListClass
 {
-    public class LinkedList<T>
+    public class LinkedList<T> 
     {
 
         private Node<T> _head;
@@ -401,6 +401,20 @@ namespace LinkedListClass
             return _tail.Data;
         }
 
+        public Node<T> GetFirstNode()
+        {
+            return _head;
+        }
+
+        public Node<T> GetLastNode()
+        {
+            return _tail;
+        }
+
+        public Node<T> GetNextNode(Node<T> node)
+        {
+            return node.Next;
+        }
 
         private Node<T> GetNode(int idx, int length)
         {
