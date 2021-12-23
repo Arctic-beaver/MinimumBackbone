@@ -5,7 +5,7 @@ namespace MinimumBackboneConsole
 {
     public class ConsoleUI
     {
-        private string[] filenames = new string[] { @"..\..\..\..\TestFiles\test.txt", @"..\..\..\..\TestFiles\test1.txt", @"..\..\..\..\TestFiles\test2.txt"};
+        private string[] filenames = new string[] { @"..\..\..\..\TestFiles\test.txt", @"..\..\..\..\TestFiles\test1.txt", @"..\..\..\..\TestFiles\test2.txt" };
 
         public void GraphFromFile()
         {
@@ -34,7 +34,7 @@ namespace MinimumBackboneConsole
             Console.WriteLine();
             Graph graph = new Graph();
 
-            for (int i = 0; i < amount; i++ )
+            for (int i = 0; i < amount; i++)
             {
                 string line = Console.ReadLine();
                 string[] splitted = line.Split();

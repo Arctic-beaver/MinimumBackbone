@@ -23,7 +23,7 @@ namespace GraphLogic.Tests
             for (int i = 0; i < array.Length; i++)
             {
                 edgeArr[i] = new Edge(array[i]);
-            } 
+            }
 
             //act
             MergeSort.Sort(edgeArr);

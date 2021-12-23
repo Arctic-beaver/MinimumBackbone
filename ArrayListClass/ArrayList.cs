@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ArrayListClass 
+namespace ArrayListClass
 {
     public class ArrayList<T>
     {

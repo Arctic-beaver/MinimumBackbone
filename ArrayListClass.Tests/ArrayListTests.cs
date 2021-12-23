@@ -464,6 +464,6 @@ namespace ArrayListClass.Tests
 
             //assert
             Assert.AreEqual(expected, actual);
-        }    
+        }
     }
 }

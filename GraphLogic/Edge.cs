@@ -8,11 +8,11 @@ namespace GraphLogic
         public string VertexB { get; set; }
 
 
-        public Edge(string vertexA, string vertexB, int weight )
+        public Edge(string vertexA, string vertexB, int weight)
         {
             VertexA = vertexA;
             VertexB = vertexB;
-            EdgeWeight = weight; 
+            EdgeWeight = weight;
         }
 
         public Edge(int weight)

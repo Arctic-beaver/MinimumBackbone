@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LinkedListClass
+﻿namespace LinkedListClass
 {
     public class Node<T>
     {

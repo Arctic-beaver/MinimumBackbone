@@ -20,7 +20,7 @@ namespace GraphLogic
         public Graph(Edge[] val)
         {
             _graph = new LinkedList<Edge>(val);
-        }       
+        }
 
         public int GetLength() => _graph.GetLength();
         public bool Contains(Edge edge) => _graph.Contains(edge);
@@ -82,7 +82,7 @@ namespace GraphLogic
                 }
                 shovel = shovel.Next;
             }
-        }      
+        }
 
         public override string ToString()
         {
@@ -106,9 +106,9 @@ namespace GraphLogic
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }            
+            }
         }
-        
+
         public void Sort()
         {
             Edge[] graph = _graph.ToArray();

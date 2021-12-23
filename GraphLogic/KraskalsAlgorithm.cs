@@ -1,6 +1,5 @@
 ﻿
 using ArrayListClass;
-using LinkedListClass;
 
 namespace GraphLogic
 {
@@ -17,7 +16,7 @@ namespace GraphLogic
             graph.ToSets(this);
 
             graph = Sets.Get(0).SetGraph;
-            
+
             return graph;
         }
 

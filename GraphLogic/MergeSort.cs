@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GraphLogic
+﻿namespace GraphLogic
 {
     public static class MergeSort
     {

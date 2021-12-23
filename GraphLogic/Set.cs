@@ -11,7 +11,7 @@ namespace GraphLogic
         {
             SetGraph = new Graph(edge);
 
-            Vertices = new ArrayList<string>();        
+            Vertices = new ArrayList<string>();
             Vertices.Add(edge.VertexA);
             Vertices.Add(edge.VertexB);
         }

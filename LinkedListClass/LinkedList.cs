@@ -2,7 +2,7 @@
 
 namespace LinkedListClass
 {
-    public class LinkedList<T> 
+    public class LinkedList<T>
     {
 
         private Node<T> _head;
