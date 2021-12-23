@@ -406,11 +406,6 @@ namespace LinkedListClass
             return _head;
         }
 
-        public Node<T> GetLastNode()
-        {
-            return _tail;
-        }
-
         public Node<T> GetNextNode(Node<T> node)
         {
             return node.Next;

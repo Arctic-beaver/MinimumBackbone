@@ -1,14 +1,12 @@
-﻿
-using LinkedListClass;
+﻿using LinkedListClass;
 using System;
-using System.Collections;
 
 namespace GraphLogic
 {
     public class Graph
     {
         private LinkedList<Edge> _graph;
-        
+
         public Graph()
         {
             _graph = new LinkedList<Edge>();
@@ -22,7 +20,7 @@ namespace GraphLogic
         public Graph(Edge[] val)
         {
             _graph = new LinkedList<Edge>(val);
-        }
+        }       
 
         public int GetLength() => _graph.GetLength();
         public bool Contains(Edge edge) => _graph.Contains(edge);

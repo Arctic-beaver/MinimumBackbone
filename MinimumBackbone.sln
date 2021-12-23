@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackClass.Tests", "StackCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphLogic.Tests", "GraphLogic.Tests\GraphLogic.Tests.csproj", "{BED5F482-1157-414F-915B-FD846F6EEAD4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayListClass", "ArrayListClass\ArrayListClass.csproj", "{C0020CBB-CFE3-4B9F-B058-B4279EAC07D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayListClass.Tests", "ArrayListClass.Tests\ArrayListClass.Tests.csproj", "{A4DAF592-E48A-422E-BFF9-8C037F749A4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{BED5F482-1157-414F-915B-FD846F6EEAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BED5F482-1157-414F-915B-FD846F6EEAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BED5F482-1157-414F-915B-FD846F6EEAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0020CBB-CFE3-4B9F-B058-B4279EAC07D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0020CBB-CFE3-4B9F-B058-B4279EAC07D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0020CBB-CFE3-4B9F-B058-B4279EAC07D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0020CBB-CFE3-4B9F-B058-B4279EAC07D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4DAF592-E48A-422E-BFF9-8C037F749A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4DAF592-E48A-422E-BFF9-8C037F749A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4DAF592-E48A-422E-BFF9-8C037F749A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4DAF592-E48A-422E-BFF9-8C037F749A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
