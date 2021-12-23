@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ArrayListClass\ArrayListClass.csproj" />
     <ProjectReference Include="..\LinkedListClass\LinkedListClass.csproj" />
     <ProjectReference Include="..\StackClass\StackClass.csproj" />
   </ItemGroup>
