@@ -22,7 +22,9 @@ namespace MinimumBackboneConsole
             KraskalsAlgorithm algorithm = new KraskalsAlgorithm();
             graph = algorithm.FindMinimumBackbone(graph);
             Console.WriteLine("Minimum backbone: ");
-            Console.WriteLine(graph.ToString());
+            Console.Write(graph.ToString());
+            Console.WriteLine(graph.GetWeight());
+            Console.WriteLine();
         }
     }
 }

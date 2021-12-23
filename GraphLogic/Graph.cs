@@ -39,8 +39,6 @@ namespace GraphLogic
         {
             Node<Edge> shovel = _graph.GetFirstNode();
             if (shovel == null) return 0;
-
-            shovel = shovel.Next;
             int weight = 0;
 
             while (shovel != null)

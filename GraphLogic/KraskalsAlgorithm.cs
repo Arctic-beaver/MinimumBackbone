@@ -10,6 +10,8 @@ namespace GraphLogic
 
         public Graph FindMinimumBackbone(Graph graph)
         {
+            Sets = new ArrayList<Set>();
+
             graph.Sort();
 
             graph.ToSets(this);
