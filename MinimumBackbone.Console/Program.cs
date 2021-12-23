@@ -8,8 +8,8 @@ namespace MinimumBackboneConsole
         {
             Console.WriteLine("Welcome. Here you can use the Kraskal's algorithm.");
             ConsoleUI ui = new ConsoleUI();
-            ui.EntryPoint();
-
+            ui.GraphFromFile();
+            ui.GraphFromConsole();
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");

@@ -5,7 +5,7 @@ namespace MinimumBackboneConsole
 {
     public class ConsoleUI
     {
-        public void EntryPoint()
+        public void GraphFromFile()
         {
             string[] lines = System.IO.File.ReadAllLines(@"..\..\..\..\TestFiles\test.txt");
 
@@ -18,9 +18,32 @@ namespace MinimumBackboneConsole
             }
             Console.WriteLine("Your graph: ");
             Console.WriteLine(graph.ToString());
+            Result(graph);
+        }
 
+        public void GraphFromConsole()
+        {
+            Console.WriteLine("Enter amount of edges: ");
+            int amount = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Good. Now enter edges: each one from new line, format: Vertex1 Vertex2 EdgeWeight");
+            Console.WriteLine();
+            Graph graph = new Graph();
+
+            for (int i = 0; i < amount; i++ )
+            {
+                string line = Console.ReadLine();
+                string[] splitted = line.Split();
+                Edge edge = new Edge(splitted[0], splitted[1], Int32.Parse(splitted[2]));
+                graph.Add(edge);
+            }
+            Result(graph);
+        }
+
+        public void Result(Graph graph)
+        {
             KraskalsAlgorithm algorithm = new KraskalsAlgorithm();
             graph = algorithm.FindMinimumBackbone(graph);
+            Console.WriteLine();
             Console.WriteLine("Minimum backbone: ");
             Console.Write(graph.ToString());
             Console.WriteLine(graph.GetWeight());
